@@ -162,8 +162,8 @@ $(function(){
         success:"valid",
         submitHandler:function(form){
             $(form).ajaxSubmit({
-                type: 'post',
-                url: "/admin/member/update" ,//自己提交给自己可以不写url
+                type:'post',
+                url: "" ,//自己提交给自己可以不写url
                 success: function(data){
                     if(data == '1'){
                         layer.msg('更新成功!',{icon:1,time:1000},function(){
