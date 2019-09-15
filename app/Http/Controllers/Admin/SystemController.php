@@ -14,7 +14,6 @@ class SystemController extends Controller
     public function update(){
         if(Input::method() == 'POST'){
             //系统设置的修改
-            $post = Input::only(['web_name','describe','copyright_information','filing_no']);
             $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
             $file = $request->file('logo_img');
             $allowed_extensions = ["png", "jpg", "gif","PNG",'jpeg'];
@@ -28,11 +27,11 @@ class SystemController extends Controller
             $filePath = asset($destinationPath.$fileName);
             $post['logo_url'] = $filePath;
             $post['system_domain'] = $tableau_domain;
-            $post['type'] = '1';
-            $default = Systemset::where('type','1')->get()->first();
-            $default -> type = '0';
-            $default->save();
-            $result = Systemset::insert($post);
+            // $post['type'] = '1';
+            $default = Systemset::get()->first();
+            // $default -> type = '0';
+            // $default->save();
+            $result = $default->update($post);
             return $result ? '1':'0';
             // //修改config配置
             // $data =  System::get()->first();
@@ -40,9 +39,9 @@ class SystemController extends Controller
             // $data -> save();
             // return 1;
         }else{
-            $tableau_domain = Session::get('tableau_domain');
+            $default = Systemset::get()->first();
                         // dd($tableau_domain);
-            return view('admin.system.index',compact('tableau_domain'));
+            return view('admin.system.index',compact('default'));
         }
     }
 }

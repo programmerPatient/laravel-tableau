@@ -43,7 +43,7 @@
                         <span class="c-red">*</span>
                         tableau域名：</label>
                     <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" id="website-title" placeholder="新域名" value="{{$tableau_domain}}" class="input-text" name="tableau_domain">
+                        <input type="text" id="website-title" placeholder="新域名" value="{{$default->system_domain}}" class="input-text" name="tableau_domain">
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                         </div> -->
                         </div>
                 </div>
-                <div class="row cl">
+                <!-- <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2">
                         <span class="c-red">*</span>
                         描述：
@@ -88,7 +88,7 @@
                     <div class="formControls col-xs-8 col-sm-9">
                         <input type="text" id="website-icp" placeholder="京ICP备00000000号" value="{{$default -> filing_no}}" class="input-text" name="filing_no">
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         {{csrf_field()}}
