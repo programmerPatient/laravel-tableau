@@ -42,7 +42,7 @@
                 <input type="text" class="input-text" value="{{$data->username}}" placeholder="" id="password" name="password">
             </div>
         </div>
-<!--         <div class="row cl">
+        <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
@@ -70,7 +70,7 @@
                     <label for="gender-3" value="13">保密</label>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -84,7 +84,7 @@
             </div>
         </div>
         </div>
-<!--         <div class="row cl">
+        <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号类型：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
@@ -104,7 +104,7 @@
                     <label for="type-2" value="2">老师</label>
                 </div>
             </div>
-        </div> -->
+        </div>
         {{csrf_field()}}
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
