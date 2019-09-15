@@ -64,7 +64,6 @@ class MemberController extends Controller
     //四修改会员信息
     public function update($id){
         $data = Member::where('id',$id)->get()->first();
-        dd($data);
         if(Input::method() == 'POST'){
             $post = Input::only(['username','password','gender','type','status','email','mobile']);
             dd($post);
