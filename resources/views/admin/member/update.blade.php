@@ -1,4 +1,3 @@
-<!-- _meta 作为公共模版分离出去 -->
 <!DOCTYPE HTML>
 <html>
 <head>
