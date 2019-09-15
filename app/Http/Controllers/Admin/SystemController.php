@@ -28,7 +28,7 @@ class SystemController extends Controller
             $post['logo_url'] = $filePath;
             $post['system_domain'] = $tableau_domain;
             // $post['type'] = '1';
-            $default = Systemset::get()->first();
+            $default = System::get()->first();
             // $default -> type = '0';
             // $default->save();
             $result = $default->update($post);
@@ -39,7 +39,7 @@ class SystemController extends Controller
             // $data -> save();
             // return 1;
         }else{
-            $default = Systemset::get()->first();
+            $default = System::get()->first();
                         // dd($tableau_domain);
             return view('admin.system.index',compact('default'));
         }
