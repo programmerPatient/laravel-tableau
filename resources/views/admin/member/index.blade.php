@@ -81,7 +81,7 @@
                     @else
                     <a style="text-decoration:none" onClick="member_start(this,'{{$value->tableau_id}}','{{$value->id}}','1','{{$value->username}}')" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe631;</i></a>
                     @endif
-                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none">
+                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','/admin/member/update/{{$value->id}}','4','','510')" class="ml-5" style="text-decoration:none">
                         <i class="Hui-iconfont">&#xe6df;</i>
                     </a>
                     <a title="删除" href="javascript:;" onclick="member_del(this,'{{$value->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>

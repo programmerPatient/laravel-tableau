@@ -61,6 +61,26 @@ class MemberController extends Controller
         }
     }
 
+    //四修改会员信息
+    public function update(){
+        $id = Input::only('id')['id'];
+        $data = Member::where('id',$id)->get()->first();
+        if(Input::method() == 'POST'){
+            $post = Input::only(['username','password','gender','type','status','email','mobile']);
+            $data->username = $post->username;
+            $data->password = $post->bcrypt($post->password);
+            $data->gender = $post->gender;
+            $data->type = $post->type;
+            $data->status = $post->status;
+            $data->email = $post->email;
+            $data->mobile = $post->mobile;
+            return $data->save() ? '1':'0';
+        }else{
+            return view('admin.member.update',compact('data'));
+        }
+    }
+
+    //删除会员
     public function delete(){
         $id = Input::only('id')['id'];
         $data = Member::where('id',$id)->get()->first();
