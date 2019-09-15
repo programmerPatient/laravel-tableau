@@ -8,6 +8,8 @@ class Role extends Model
 {
     protected $table = 'role';
 
+    protected $fillable = ['role_name'];
+
     public $timestamps = false;
 
     //将分派的权限进行处理
