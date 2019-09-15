@@ -1,5 +1,5 @@
 <?php
-
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -188,4 +188,3 @@ $(function(){
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>
-?>
