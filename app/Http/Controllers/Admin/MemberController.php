@@ -60,4 +60,30 @@ class MemberController extends Controller
             return view('admin.member.add');
         }
     }
+
+    public function delete(){
+        $id = Input::only('id')['id'];
+        $data = Member::where('id',$id)->get()->first();
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/fc697b45-5d47-43c0-9e39-5a90812e6273/users/".$data->tableau_id,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "DELETE",
+        CURLOPT_HTTPHEADER => array(
+            "X-Tableau-Auth: ".Session::get('token'),
+            "Accept: application/json",
+          ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        $data ->delete();
+        $data->save();
+        return '1';
+    }
 }

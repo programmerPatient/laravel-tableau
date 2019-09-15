@@ -33,45 +33,16 @@
 <body>
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
-        <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml"><img src="" alt="logo图片位置" style="width:100px;max-height:30px"></a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">logo</a>
+        <div class="container-fluid cl">
+            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">
+                <img src="" alt="logo图片位置" style="width:100px;max-height:30px">
+            </a>
+            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">logo</a>
 <!--             <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span> -->
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
-<!--                 <div style="float:left;margin-left:150px" class="nav navbar-nav navbar-userbar hidden-xs">
-                        <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">市场总览</a>
-                        <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">国内市场</a>
-                        <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">国际市场</a>
-                        <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">电子商务</a>
-                        <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">财务分析</a>
-                        <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">烟台</a>
-                </div> -->
-<!--             <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
-                <ul class="cl">
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">市场总览</a></li>
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">国内市场</a></li>
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">国际市场</a></li>
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">电子商务</a></li>
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">财务分析</a></li>
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">烟台</a></li>
-
-                </ul>
-            </nav> -->
-                <!-- <nav class="nav navbar-nav"> -->
-                   <!--  <ul class="cl">
-                        <li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
-                            <ul class="dropDown-menu menu radius box-shadow">
-                                <li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
-                                <li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
-                                <li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
-                                <li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
-                        </ul>
-                    </li>
-                </ul> -->
-            <!-- </nav> -->
             <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
                 <ul class="cl">
                     <li class="dropDown dropDown_hover">
-                        <li><a data-href="/admin/member/index" data-title="会员列表" href="javascript:;">会员管理</a></li>
-                        <li><a data-href="/admin/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
                         <a href="#" class="dropDown_A">{{ Auth::guard('admin') -> user()->username }} <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
@@ -100,6 +71,10 @@
 </header>
 <aside class="Hui-aside">
     <div class="menu_dropdown bk_2">
+        <dl id="menu-member">
+            <li><a data-href="/admin/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
+            <li><a data-href="/admin/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
+        </dl>
         @foreach($p as $val)
         <dl id="menu-article">
             <dt style="text-overflow:ellipsis;"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
@@ -123,58 +98,7 @@
             </dd>
         </dl>
         @endforeach
-<!--         <dl id="menu-product">
-            <dt><i class="Hui-iconfont">&#xe620;</i>市场客户分析<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="product-brand.html" data-title="市场客户分析" href="javascript:void(0)">市场客户分析</a></li>
-                    <li><a data-href="product-category.html" data-title="市场客户分析" href="javascript:void(0)">市场客户分析</a></li>
-                    <li><a data-href="product-list.html" data-title="市场客户分析" href="javascript:void(0)">市场客户分析</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-comments">
-            <dt><i class="Hui-iconfont">&#xe622;</i>市场反馈分析<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="http://h-ui.duoshuo.com/admin/" data-title="市场反馈分析" href="javascript:;">市场反馈分析</a></li>
-                    <li><a data-href="feedback-list.html" data-title="市场反馈分析" href="javascript:void(0)">市场反馈分析</a></li>
-                </ul>
-            </dd>
-        </dl> -->
-<!--         <dl id="menu-member">
-            <dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="/admin/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
-                    <li><a data-href="member-del.html" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
-                    <li><a data-href="member-level.html" data-title="等级管理" href="javascript:;">等级管理</a></li>
-                    <li><a data-href="member-scoreoperation.html" data-title="积分管理" href="javascript:;">积分管理</a></li>
-                    <li><a data-href="member-record-browse.html" data-title="浏览记录" href="javascript:void(0)">浏览记录</a></li>
-                    <li><a data-href="member-record-download.html" data-title="下载记录" href="javascript:void(0)">下载记录</a></li>
-                    <li><a data-href="member-record-share.html" data-title="分享记录" href="javascript:void(0)">分享记录</a></li>
-                </ul>
-            </dd>
-        </dl> -->
-        <!-- <dl id="menu-admin">
-            <dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="/admin/role/index" data-title="角色管理" href="javascript:void(0)">角色管理</a></li>
-                    <li><a data-href="/admin/auth/index" data-title="权限管理" href="javascript:void(0)">权限管理</a></li>
-                    <li><a data-href="/admin/manager/index" data-title="管理员列表" href="javascript:void(0)">管理员列表</a></li>
-                </ul>
-            </dd>
-        </dl> -->
-<!--         <dl id="menu-system">
-            <dt><i class="Hui-iconfont">&#xe62e;</i>系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="/admin/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
-            </ul>
-        </dd>
-    </dl> -->
-</div>
+    </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <section class="Hui-article-box">

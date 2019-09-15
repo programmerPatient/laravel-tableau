@@ -46,6 +46,7 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth','checkrbac']],fu
     //会员模块
     Route::get('member/index','Admin\MemberController@index');
     Route::any('member/add','Admin\MemberController@add');
+    Route::delete('member/delete','Admin\MemberController@delete');
     //异步头像上传
     Route::post('uploader/webuploader','Admin\UploaderController@index');
     //异步四级联动数据获取

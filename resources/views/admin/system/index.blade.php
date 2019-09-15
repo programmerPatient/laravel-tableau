@@ -139,13 +139,13 @@ $(function(){
                 url: "" ,//自己提交给自己可以不写url
                 success: function(data){
                     if(data == '1'){
-                        layer.msg('添加成功!',{icon:1,time:1000},function(){
+                        layer.msg('更新成功!',{icon:1,time:1000},function(){
                             var index = parent.layer.getFrameIndex(window.name);
-                            //刷新
-                            parent.window.location = parent.window.location;
+                            // //刷新
+                            // window.location = window.location;
                         });
                     }else{
-                        layer.msg('添加失败!',{icon:2,time:2000});
+                        layer.msg('更新失败!',{icon:2,time:2000});
                     }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){
@@ -153,6 +153,20 @@ $(function(){
                 }
             });
         }
+    });
+
+     $('#file-fr').on('change',function(){
+        var filePath = $(this).val(),         //获取到input的value，里面是文件的路径
+            fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(),
+            src = window.URL.createObjectURL(this.files[0]); //转成可以在本地预览的格式
+
+        // 检查是否是图片
+        if( !fileFormat.match(/.png|.jpg|.jpeg/) ) {
+            error_prompt_alert('上传错误,文件格式必须为：png/jpg/jpeg');
+            return;
+        }
+
+        $('#cropedBigImg').attr('src',src);
     });
 });
 </script>

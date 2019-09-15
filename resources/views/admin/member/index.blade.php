@@ -74,13 +74,6 @@
                     @endif
                     </span>
                 </td>
-<!--                 <td class="td-status">
-                    @if($value->type == '1')
-                    学生
-                    @else
-                    老师
-                    @endif
-                </td> -->
                 <td class="td-manage">
                     <!--判断操作按钮-->
                     @if($value->status == '1')
@@ -91,7 +84,7 @@
                     <a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none">
                         <i class="Hui-iconfont">&#xe6df;</i>
                     </a>
-                    <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                    <a title="删除" href="javascript:;" onclick="member_del(this,'{{$value->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
                 </td>
             </tr>
             @endforeach
@@ -116,7 +109,7 @@ $(function(){
         "bStateSave": true,//状态保存
         "aoColumnDefs": [
           //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-          {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
+          {"orderable":false,"aTargets":[0,8]}// 制定列不参与排序
         ]
     });
 
@@ -142,13 +135,15 @@ function member_stop(obj,tableau_id,id,type,name){
             success: function(data){
                 if(data == '1'){
                         layer.msg('停用成功!',{icon:1,time:1000},function(){
-                            var index = parent.layer.getFrameIndex(window.name);
+                            // var index = parent.layer.getFrameIndex(window.name);
                             //刷新
                             // this.window.location = this.window.location;
                             parent.layer.close(index);
+                                                         // window.location.reload();
+
                         });
-                        document.getElementById('')
-                        $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,'+'\''+tableau_id+'\''+'\''+id+'\'' +','+'\''+!type+'\''+','+'\''+ username+'\''+')" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
+                        window.location = window.location;
+                        // $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,'+'\''+this->tableau_id+'\''+','+'\''+id+'\''+','+'\''+2+'\''+','+'\''+username+'\''+')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
                         $(obj).parents("tr").find(".td-status").html('<span class="label label radius">已停用</span>');
                         $(obj).remove();
                         layer.msg('已停用!',{icon: 6,time:1000});
@@ -157,7 +152,7 @@ function member_stop(obj,tableau_id,id,type,name){
                     }
             },
             error:function(data) {
-                alert('失败');
+                alert('停用失败，请联系管理员是否已经授权');
             },
         });
     });
@@ -179,18 +174,21 @@ function member_start(obj,tableau_id,id,type,name){
                             var index = parent.layer.getFrameIndex(window.name);
                             //刷新
                             // window.location = window.location;
+
                             parent.layer.close(index);
                         });
-                        $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,'+'\''+tableau_id+'\''+'\''+id+'\''+','+'\''+!type+'\''+','+'\''+ username+'\''+')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
+                        window.location = window.location;
+                        // $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,'+'\''+tableau_id+'\''+','+'\''+id+'\''+','+'\''+2+'\''+','+'\''+username+'\''+')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
                         $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
                         $(obj).remove();
                         layer.msg('已启用!',{icon: 6,time:1000});
+
                     }else{
                         layer.msg('启用失败!',{icon:2,time:2000});
                     }
             },
             error:function(data) {
-                alert('失败');
+                alert('停用失败，请联系管理员是否存在相同的名称！');
             },
         });
     });
@@ -207,12 +205,19 @@ function change_password(title,url,id,w,h){
 function member_del(obj,id){
     layer.confirm('确认要删除吗？',function(index){
         $.ajax({
-            type: 'POST',
-            url: '',
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: 'delete',
+            url: '/admin/member/delete',
+            data:{'id':id},
             dataType: 'json',
             success: function(data){
-                $(obj).parents("tr").remove();
-                layer.msg('已删除!',{icon:1,time:1000});
+                if(data == '1')
+                {
+                    $(obj).parents("tr").remove();
+                    layer.msg('已删除!',{icon:1,time:1000});
+                }else{
+                    layer.msg('删除失败!',{icon:1,time:1000});
+                }
             },
             error:function(data) {
                 console.log(data.msg);
