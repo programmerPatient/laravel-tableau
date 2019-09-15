@@ -40,7 +40,6 @@
                 <th width="25"><input type="checkbox" name="" value=""></th>
                 <th width="40">ID</th>
                 <th width="100">用户名</th>
-                <th width="150">头像</th>
                 <th width="40">性别</th>
                 <th width="90">手机</th>
                 <th width="150">邮箱</th>
@@ -56,7 +55,6 @@
                 <td><input type="checkbox" value="{{$value->id}}" name=""></td>
                 <td>{{$value->id}}</td>
                 <td>{{$value->username}}</td>
-                <td><img src="{{$value->avatar}}" alt="头像" width="60"></td>
                 <td>@if($value->gender == '1')
                     男
                     @elseif($value->gender == '2')
@@ -92,8 +90,6 @@
                     @endif
                     <a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none">
                         <i class="Hui-iconfont">&#xe6df;</i>
-                    </a>
-                    <a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','change-password.html','10001','600','270')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i>
                     </a>
                     <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
                 </td>

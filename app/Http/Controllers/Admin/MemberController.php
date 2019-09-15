@@ -52,7 +52,7 @@ class MemberController extends Controller
                     $data['tableau_id'] = $da->user->id;
                 }
             }
-            $data['avatar'] = "/images/th.jpg";
+            // $data['avatar'] = "/images/th.jpg";
             $result = Member::insert($data);
             return $result ? '1':'0';
         }else{

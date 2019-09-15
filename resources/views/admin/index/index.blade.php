@@ -69,14 +69,9 @@
             <!-- </nav> -->
             <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
                 <ul class="cl">
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">市场总览</a></li>
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">国内市场</a></li>
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">国际市场</a></li>
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">电子商务</a></li>
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">财务分析</a></li>
-                    <li><a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">烟台</a></li>
-                    <li>{{Auth::guard('admin')->user()->role->role_name}}</li>
                     <li class="dropDown dropDown_hover">
+                        <li><a data-href="/admin/member/index" data-title="会员列表" href="javascript:;">会员管理</a></li>
+                        <li><a data-href="/admin/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
                         <a href="#" class="dropDown_A">{{ Auth::guard('admin') -> user()->username }} <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
@@ -147,7 +142,7 @@
                 </ul>
             </dd>
         </dl> -->
-        <dl id="menu-member">
+<!--         <dl id="menu-member">
             <dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
@@ -160,7 +155,7 @@
                     <li><a data-href="member-record-share.html" data-title="分享记录" href="javascript:void(0)">分享记录</a></li>
                 </ul>
             </dd>
-        </dl>
+        </dl> -->
         <!-- <dl id="menu-admin">
             <dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
@@ -171,14 +166,14 @@
                 </ul>
             </dd>
         </dl> -->
-        <dl id="menu-system">
+<!--         <dl id="menu-system">
             <dt><i class="Hui-iconfont">&#xe62e;</i>系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
                     <li><a data-href="/admin/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
             </ul>
         </dd>
-    </dl>
+    </dl> -->
 </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
