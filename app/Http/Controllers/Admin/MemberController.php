@@ -76,6 +76,7 @@ class MemberController extends Controller
             $data->mobile = $post->mobile;
             return $data->save() ? '1':'0';
         }else{
+            dd($data);
             return view('admin.member.update',compact('data'));
         }
     }
