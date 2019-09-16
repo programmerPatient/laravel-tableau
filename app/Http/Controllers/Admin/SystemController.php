@@ -23,7 +23,6 @@ class SystemController extends Controller
             }
             $destinationPath = public_path('/images'); //public 文件夹下面建 imges 文件夹
 
-            dd($destinationPath);
             $extension = $file->getClientOriginalExtension();
             $fileName = str_random(10).'.'.$extension;
             $file->move($destinationPath, $fileName);
