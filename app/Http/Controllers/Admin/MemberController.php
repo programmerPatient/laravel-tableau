@@ -63,6 +63,7 @@ class MemberController extends Controller
 
     //四修改会员信息
     public function modify($id){
+         return view('admin.member.modify');
         $data = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
             $post = Input::only(['username','password','gender','type','status','email','mobile']);
