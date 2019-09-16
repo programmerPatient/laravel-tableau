@@ -22,9 +22,9 @@ class SystemController extends Controller
                 return ['error' => 'You may only upload png, jpg , PNG , jpeg or gif.'];
             }
             $destinationPath = '/images'; //public 文件夹下面建 imges 文件夹
-            dd($destinationPath);
             $extension = $file->getClientOriginalExtension();
             $fileName = str_random(10).'.'.$extension;
+            dd($fileName);
             $file->move($destinationPath, $fileName);
             $filePath = ''.$destinationPath.$fileName;
             $post['logo_url'] = $filePath;
