@@ -137,7 +137,9 @@ class PublicController extends Controller
     public function logout(Request $request){
         //退出,会清除用户信息
         Auth::guard('admin') -> logout();
+        Session::flush();
         dd(Session::all());
+
 
         //跳转到登录界面
         return redirect('/admin/public/login');
