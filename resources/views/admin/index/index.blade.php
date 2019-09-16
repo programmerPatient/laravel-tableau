@@ -194,7 +194,8 @@ function myselfinfo(){
 }
 
 function historyClear(){
-    window.history.forward(1);
+    // window.history.forward(1);
+    console.log('sssss');
 }
 
 /*资讯-添加*/
