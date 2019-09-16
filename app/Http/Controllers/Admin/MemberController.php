@@ -67,7 +67,7 @@ class MemberController extends Controller
         $data = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
             $post = Input::only(['password','gender','status','email','mobile']);
-            dd($post->password);
+            dd($post['password']);
             $data->password = bcrypt($post->password);
             $data->gender = $post->gender;
             $data->status = $post->status;
