@@ -47,6 +47,16 @@
                     </div>
                 </div>
             </div>
+            <div class="tabCon">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">
+                        <span class="c-red">*</span>
+                        站内标题：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" id="website-title" placeholder="新标题" value="{{$default->web_title}}" class="input-text" name="web_title">
+                    </div>
+                </div>
+            </div>
             <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2">
                         <span class="c-red">*</span>
@@ -127,6 +137,9 @@ $(function(){
         //表单验证
         rules:{
             tableau_domain:{
+                required:true,
+            },
+           web_title:{
                 required:true,
             },
         },
