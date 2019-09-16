@@ -90,7 +90,6 @@ class PublicController extends Controller
               ),
             ));
             $response = curl_exec($curl);
-            dd($response);
             $err = curl_error($curl);
             if ($err) {
               echo "cURL Error #:" . $err;
@@ -100,7 +99,7 @@ class PublicController extends Controller
                 /*获取用户列表*/
 
                 curl_setopt_array($curl, array(
-                CURLOPT_URL => "http://tableau.kalaw.top/api/3.2/sites/fc697b45-5d47-43c0-9e39-5a90812e6273/users",
+                CURLOPT_URL => Session::get('tableau_domain')."/api/3.2/sites/fc697b45-5d47-43c0-9e39-5a90812e6273/users",
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
