@@ -15,7 +15,7 @@ class IndexController extends Controller
 
     //首页
     public function index(){
-        $sytem = System::get()->first();
+        $system = System::get()->first();
         $curlt = curl_init();
 
         /*获取用户的信息*/
