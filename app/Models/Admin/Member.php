@@ -3,8 +3,9 @@
 namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Authenticatable;
 
-class Member extends Model
+class Member extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 {
     protected $table = 'member';
 
