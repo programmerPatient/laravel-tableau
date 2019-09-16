@@ -40,7 +40,7 @@
             <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/admin/index/index">logo</a>
 <!--             <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span> -->
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
-            <div class="nav-toggle Hui-iconfont visible-xs">{{$system->web_title}}</div>
+            <div style="color:white;font-size:15px;">{{$system->web_title}}</div>
             <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
                 <ul class="cl">
                     <li class="dropDown dropDown_hover">
