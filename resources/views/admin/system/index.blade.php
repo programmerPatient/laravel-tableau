@@ -41,51 +41,38 @@
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2">
                         <span class="c-red">*</span>
-                        tableau域名：</label>
+                        tableau域名：
+                    </label>
                     <div class="formControls col-xs-8 col-sm-9">
                         <input type="text" id="website-title" placeholder="新域名" value="{{$default->system_domain}}" class="input-text" name="tableau_domain">
                     </div>
                 </div>
             </div>
-            <div class="tabCon">
-                <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2">
-                        <span class="c-red">*</span>
-                        站内标题：</label>
-                    <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" id="website-title" placeholder="新标题" value="{{$default->web_title}}" class="input-text" name="web_title">
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">
+                    <span class="c-red">*</span>
+                    网站logo：
+                </label>
+                <div class="ormControls col-xs-8 col-sm-9">
+                    <label>修改图片</label>
+                    <div class="file-loading">
+                        <input id="file-fr" name="logo_img" type="file" multiple value="">
+                        <div>
+                            <img id="cropedBigImg" src="{{$default->logo_url}}" value='custom' alt="lorem ipsum dolor sit" data-address='' title="自定义背景" width="100" height="100"/>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row cl">
+                <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2">
                         <span class="c-red">*</span>
-                        网站logo：</label>
-                        <div class="ormControls col-xs-8 col-sm-9">
-                            <label>修改图片</label>
-                            <div class="file-loading">
-                                <input id="file-fr" name="logo_img" type="file" multiple value="">
-                                <div>
-                                    <img id="cropedBigImg" src="{{$default->logo_url}}" value='custom' alt="lorem ipsum dolor sit" data-address='' title="自定义背景" width="100" height="100"/>
-                                </div>
-                            </div>
-                        <!-- <hr style="border: 2px dotted">
-                        <label>Spanish Input</label>
-                        <div class="file-loading">
-                        <input id="file-es" name="file-es[]" type="file" multiple>
-                        </div> -->
-                        </div>
-                </div>
-                <!-- <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2">
-                        <span class="c-red">*</span>
-                        描述：
+                        网站标题：
                     </label>
                     <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" id="website-description" placeholder="空制在80个汉字，160个字符以内" value="{{$default -> describe}}" class="input-text" name="describe">
+                        <input type="text" id="website-title" placeholder="新域名" value="{{$default->web_title}}" class="input-text" name="web_title">
                     </div>
                 </div>
-                <div class="row cl">
+        <!--         <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2">
                         <span class="c-red">*</span>
                         底部版权信息：</label>
@@ -99,7 +86,6 @@
                         <input type="text" id="website-icp" placeholder="京ICP备00000000号" value="{{$default -> filing_no}}" class="input-text" name="filing_no">
                     </div>
                 </div> -->
-            </div>
         </div>
         {{csrf_field()}}
         <div class="row cl">
