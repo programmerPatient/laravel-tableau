@@ -1,4 +1,4 @@
-
+<!-- _meta 作为公共模版分离出去 -->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -34,40 +34,28 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{$data->username}}" placeholder="" id="username" name="username">
+                <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{$data->username}}" placeholder="" id="password" name="password">
+                <input type="text" class="input-text" value="" placeholder="" id="password" name="password">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
-                    @if($data -> gender == '1')
                     <input name="gender" type="radio" id="gender-1" checked value="1">
-                    @else
-                    <input name="gender" type="radio" id="gender-1" value="1">
-                    @enif
                     <label for="gender-1">男</label>
                 </div>
                 <div class="radio-box">
-                    @if($data -> gender == '2')
-                    <input name="gender" type="radio" id="gender-2" checked value="2">
-                    @else
-                    <input name="gender" type="radio" id="gender-2" value="2">
-                    @enif
+                    <input type="radio" id="gender-2" name="gender">
                     <label for="gender-2" value="2">女</label>
                 </div>
                 <div class="radio-box">
-                    @if($data -> gender == '3')
-                    <input name="gender" type="radio" id="gender-3" checked value="3">
-                    @else
-                    <input name="gender" type="radio" id="gender-3" value="3">
-                    @enif
+                    <input type="radio" id="gender-3" name="gender">
                     <label for="gender-3" value="13">保密</label>
                 </div>
             </div>
@@ -75,13 +63,13 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{$data->mobile}}" placeholder="" id="mobile" name="mobile">
+                <input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" placeholder="@" name="email" id="email" value="{{$data->email}}">
+                <input type="text" class="input-text" placeholder="@" name="email" id="email">
             </div>
         </div>
         </div>
@@ -89,20 +77,38 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号类型：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
-                    @if($data -> type == '1')
                     <input name="type" type="radio" id="type-1" checked value="1">
-                    @else
-                    <input name="type" type="radio" id="type-1" value="1">
-                    @enif
                     <label for="type-1">学生</label>
                 </div>
                 <div class="radio-box">
-                    @if($data -> type == '2')
-                    <input name="type" type="radio" id="type-2" checked value="2">
-                    @else
-                    <input name="type" type="radio" id="type-2" value="2">
-                    @enif
+                    <input type="radio" id="type-2" name="type">
                     <label for="type-2" value="2">老师</label>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号状态：</label>
+            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                <div class="radio-box">
+                    <input name="status" type="radio" id="status-1" checked value="1">
+                    <label for="status-1">禁用</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" id="status-2" name="status">
+                    <label for="status-2" value="2">启用</label>
+                </div>
+            </div>
+        </div>
+      <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>同时创建tableau账户：</label>
+            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                <div class="radio-box">
+                    <input name="tableau_user" type="radio" id="status-1" checked value="1">
+                    <label for="status-1">是</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" id="status-2" name="tableau_user">
+                    <label for="status-2" value="0">否</label>
                 </div>
             </div>
         </div>
@@ -152,9 +158,6 @@ $(function(){
                 required:true,
                 email:true,
             },
-            password:{
-                required:true,
-            },
 
         },
         onkeyup:false,
@@ -162,18 +165,18 @@ $(function(){
         success:"valid",
         submitHandler:function(form){
             $(form).ajaxSubmit({
-                type:'post',
+                type: 'post',
                 url: "" ,//自己提交给自己可以不写url
                 success: function(data){
                     if(data == '1'){
-                        layer.msg('更新成功!',{icon:1,time:1000},function(){
+                        layer.msg('添加成功!',{icon:1,time:1000},function(){
                             var index = parent.layer.getFrameIndex(window.name);
                             //刷新
                             parent.window.location = parent.window.location;
                             parent.layer.close(index);
                         });
                     }else{
-                        layer.msg('更新失败!',{icon:2,time:2000});
+                        layer.msg('添加失败!',{icon:2,time:2000});
                     }
                 },
                 error: function(XmlHttpRequest, textis_nav, errorThrown){
