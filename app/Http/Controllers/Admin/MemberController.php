@@ -22,8 +22,9 @@ class MemberController extends Controller
     public function add(){
         //判断请求类型
         if(Input::method() == 'POST'){
-            $data = Input::only(['username','password','gender','mobile','email','status']);
+            $data = Input::only(['username','password','gender','mobile','email']);
             $data['created_at'] = date('Y-m-d H:i:s',time());
+            $data['status'] = Input::get(['tableau_user']);
             if(Input::get(['tableau_user']) == '1'){
                 //创建table用户
                 $curl = curl_init();
@@ -65,9 +66,7 @@ class MemberController extends Controller
     public function modify($id){
         $data = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
-            $post = Input::only(['username','password','gender','status','email','mobile']);
-            dd($post);
-            $data->username = $post->username;
+            $post = Input::only(['password','gender','status','email','mobile']);
             $data->password = $post->bcrypt($post->password);
             $data->gender = $post->gender;
             $data->status = $post->status;

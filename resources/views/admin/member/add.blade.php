@@ -73,19 +73,19 @@
             </div>
         </div>
         </div>
-        <div class="row cl">
+<!--         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号状态：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
-                    <input name="status" type="radio" id="status-1" checked value="1">
+                    <input name="status" type="radio" id="status-1" checked value="2">
                     <label for="status-1">禁用</label>
                 </div>
                 <div class="radio-box">
                     <input type="radio" id="status-2" name="status">
-                    <label for="status-2" value="2">启用</label>
+                    <label for="status-2" value="1">启用</label>
                 </div>
             </div>
-        </div>
+        </div> -->
       <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>同时创建tableau账户：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
@@ -94,7 +94,7 @@
                     <label for="status-1">是</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="status-2" name="tableau_user">
+                    <input type="radio" id="status-2" name="tableau_user" value="2">
                     <label for="status-2" value="0">否</label>
                 </div>
             </div>

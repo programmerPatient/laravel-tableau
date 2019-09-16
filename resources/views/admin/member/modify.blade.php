@@ -31,12 +31,12 @@
 <body>
 <article class="page-container">
     <form action="" method="post" class="form form-horizontal" id="form-member-add">
-        <div class="row cl">
+<!--         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" value="{{$data->username}}" placeholder="" id="username" name="username">
             </div>
-        </div>
+        </div> -->
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -136,11 +136,6 @@ $(function(){
 
     $("#form-member-add").validate({
         rules:{
-            username:{
-                required:true,
-                minlength:2,
-                maxlength:16
-            },
             gender:{
                 required:true,
             },
