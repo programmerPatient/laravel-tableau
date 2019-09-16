@@ -138,7 +138,6 @@ class PublicController extends Controller
         //退出,会清除用户信息
         Auth::guard('admin') -> logout();
         Session::flush();
-        dd(Session::all());
 
 
         //跳转到登录界面
