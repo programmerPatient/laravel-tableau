@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth','checkrbac']],fu
     //异步头像上传
     Route::post('uploader/webuploader','Admin\UploaderController@index');
     //异步四级联动数据获取
-    Route::get('member/getAreaById','Admin\UploaderController@getAreaById');
+    // Route::get('member/getAreaById','Admin\UploaderController@getAreaById');
     //tableau模块
     //tableau测试
     Route::get('table/index','Admin\TableController@index');

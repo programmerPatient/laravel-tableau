@@ -75,36 +75,15 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
+                <input type="text" class="input-text" value="{{$data->mobile}}" placeholder="" id="mobile" name="mobile">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" placeholder="@" name="email" id="email">
+                <input type="text" class="input-text" value="{{$data->email}}" placeholder="@" name="email" id="email">
             </div>
         </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号类型：</label>
-            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                <div class="radio-box">
-                    @if($data->type == '1')
-                    <input name="type" type="radio" id="type-1" checked value="1">
-                    @else
-                    <input name="type" type="radio" id="type-1" value="1">
-                    @endif
-                    <label for="type-1">学生</label>
-                </div>
-                <div class="radio-box">
-                    @if($data->type == '2')
-                    <input type="radio" id="type-2" checked name="type">
-                    @else
-                    <input type="radio" id="type-2" name="type">
-                    @endif
-                    <label for="type-2" value="2">老师</label>
-                </div>
-            </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号状态：</label>

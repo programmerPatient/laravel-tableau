@@ -8,5 +8,5 @@ class Member extends Model
 {
     protected $table = 'member';
 
-    protected $fillable =['username','password','gender','email','mobile','tableau_id','type','created_at','status','avatar'];
+    protected $fillable =['username','password','gender','email','mobile','tableau_id','created_at','status'];
 }

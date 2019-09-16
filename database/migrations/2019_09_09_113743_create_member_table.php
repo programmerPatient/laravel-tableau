@@ -23,7 +23,7 @@ class CreateMemberTable extends Migration
             // $table->string('avatar');//头像
             $table->string('tableau_id')->nullable();//tableauid
             $table->timestamps();
-            $table->enum('type',[1,2])->notnull()->default('1');
+            // $table->enum('type',[1,2])->notnull()->default('1');
            $table->enum('status',[1,2])->notnull()->default('2');
         });
     }
