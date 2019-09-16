@@ -40,22 +40,34 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="password" name="password">
+                <input type="text" class="input-text" value="{{$data->password}}" placeholder="" id="password" name="password">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
+                    @if($data->gender == '1')
                     <input name="gender" type="radio" id="gender-1" checked value="1">
+                    @else
+                    <input name="gender" type="radio" id="gender-1" value="1">
+                    @endif
                     <label for="gender-1">男</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="gender-2" name="gender">
+                    @if($data->gender == '2')
+                    <input type="radio" id="gender-2" checked name="gender">
+                    @else
+                    <input type="radio" id="gender-2"  name="gender">
+                    @endif
                     <label for="gender-2" value="2">女</label>
                 </div>
                 <div class="radio-box">
+                    @if($data->gender == '3')
+                    <input type="radio" id="gender-3" checked name="gender">
+                    @else
                     <input type="radio" id="gender-3" name="gender">
+                    @endif
                     <label for="gender-3" value="13">保密</label>
                 </div>
             </div>
@@ -77,11 +89,19 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号类型：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
+                    @if($data->type == '1')
                     <input name="type" type="radio" id="type-1" checked value="1">
+                    @else
+                    <input name="type" type="radio" id="type-1" value="1">
+                    @endif
                     <label for="type-1">学生</label>
                 </div>
                 <div class="radio-box">
+                    @if($data->type == '2')
+                    <input type="radio" id="type-2" checked name="type">
+                    @else
                     <input type="radio" id="type-2" name="type">
+                    @endif
                     <label for="type-2" value="2">老师</label>
                 </div>
             </div>
@@ -90,25 +110,20 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账号状态：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
-                    <input name="status" type="radio" id="status-1" checked value="1">
+                    @if($data->status == '2')
+                    <input name="status" type="radio" id="status-1" checked value="2">
+                    @else
+                    <input name="status" type="radio" id="status-1" checked value="2">
+                    @endif
                     <label for="status-1">禁用</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="status-2" name="status">
+                     @if($data->status == '1')
+                    <input type="radio" id="status-2" name="status" checked value="1">
+                    @else
+                    <input type="radio" id="status-2" name="status" value="1">
+                    @endif
                     <label for="status-2" value="2">启用</label>
-                </div>
-            </div>
-        </div>
-      <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>同时创建tableau账户：</label>
-            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                <div class="radio-box">
-                    <input name="tableau_user" type="radio" id="status-1" checked value="1">
-                    <label for="status-1">是</label>
-                </div>
-                <div class="radio-box">
-                    <input type="radio" id="status-2" name="tableau_user">
-                    <label for="status-2" value="0">否</label>
                 </div>
             </div>
         </div>
