@@ -24,8 +24,8 @@ class SystemController extends Controller
             $destinationPath = '/images'; //public 文件夹下面建 imges 文件夹
             $extension = $file->getClientOriginalExtension();
             $fileName = str_random(10).'.'.$extension;
-            dd($fileName);
             $file->move($destinationPath, $fileName);
+            dd($fileName);
             $filePath = ''.$destinationPath.$fileName;
             $post['logo_url'] = $filePath;
             $post['system_domain'] = $tableau_domain;
