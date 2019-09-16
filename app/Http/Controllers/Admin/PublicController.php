@@ -62,7 +62,13 @@ class PublicController extends Controller
         $data = $request -> only(['username','password']);
         //继续开始进行身份核实
         $data['status'] = '2';//要求状态为启用的用户登录
+        $admin = DB::table('manager') -> get() ->first();
+        $type = '1';
         $result = Auth::guard('admin') -> attempt($data,$request -> get('online'));
+        if(!$result){
+            $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
+            $type = '2';
+        }
         //判断是否成功
         if($result){
             $curl = curl_init();
@@ -75,7 +81,7 @@ class PublicController extends Controller
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\"credentials\":{\"name\":\"" . $data['username'] . "\",\"password\":\"admin\",\"site\":{\"contentUrl\":\"\"}}}",
+            CURLOPT_POSTFIELDS => "{\"credentials\":{\"name\":\"" . $admin['username'] . "\",\"password\":\"admin\",\"site\":{\"contentUrl\":\"\"}}}",
             CURLOPT_HTTPHEADER => array(
                 "User-Agent: TabCommunicate",
                 "Content-Type: application/json",
@@ -123,7 +129,7 @@ class PublicController extends Controller
                 }
             }
             //跳转到后台首页
-            return redirect('admin/index/index');
+            return redirect('admin/index/index',compact('type'));
         }else{
             //withErrors表示带上错误信息
             return redirect('/admin/public/login') -> withErrors([

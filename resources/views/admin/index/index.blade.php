@@ -75,10 +75,12 @@
 </header>
 <aside class="Hui-aside">
     <div class="menu_dropdown bk_2">
+        @if($type == '1')
         <dl id="menu-member">
             <li><a data-href="/admin/member/index" data-title="会员列表" href="javascript:;">会员列表</a></li>
             <li><a data-href="/admin/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
         </dl>
+        @endif
         @foreach($p as $val)
         <dl id="menu-article">
             <dt style="text-overflow:ellipsis;"><i class="Hui-iconfont">&#xe616;</i>{{$val['name']}}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
