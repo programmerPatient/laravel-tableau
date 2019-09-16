@@ -70,7 +70,6 @@ class PublicController extends Controller
             $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
             $type = '2';
         }
-        dd($result);
         //判断是否成功
         if($result){
             $curl = curl_init();
@@ -91,6 +90,7 @@ class PublicController extends Controller
               ),
             ));
             $response = curl_exec($curl);
+            dd($response);
             $err = curl_error($curl);
             if ($err) {
               echo "cURL Error #:" . $err;
