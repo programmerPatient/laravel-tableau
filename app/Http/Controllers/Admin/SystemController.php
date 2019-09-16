@@ -15,7 +15,7 @@ class SystemController extends Controller
         if(Input::method() == 'POST'){
             //系统设置的修改
             $tableau_domain = Input::only("tableau_domain")["tableau_domain"];
-            dd(Input::only('web_title'));
+            dd(Input::only('web_title')['web_title']);
             $file = $request->file('logo_img');
 
             $allowed_extensions = ["png", "jpg", "gif","PNG",'jpeg'];
