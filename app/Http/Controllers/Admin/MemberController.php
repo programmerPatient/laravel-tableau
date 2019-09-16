@@ -101,7 +101,7 @@ class MemberController extends Controller
         $err = curl_error($curl);
         curl_close($curl);
         $data ->delete();
-        $data->save();
+        // $data->save();
         return '1';
     }
 }
