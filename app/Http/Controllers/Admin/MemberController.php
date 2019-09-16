@@ -67,12 +67,11 @@ class MemberController extends Controller
         $data = Member::where('id',$id)->get()->first();
         if(Input::method() == 'POST'){
             $post = Input::only(['password','gender','status','email','mobile']);
-            dd($post['password']);
-            $data->password = bcrypt($post->password);
-            $data->gender = $post->gender;
-            $data->status = $post->status;
-            $data->email = $post->email;
-            $data->mobile = $post->mobile;
+            $data->password = bcrypt($post['password']);
+            $data->gender = $post['gender'];
+            $data->status = $post['status'];
+            $data->email = $post['email'];
+            $data->mobile = $post['mobile'];
             return $data->save() ? '1':'0';
         }else{
             return view('admin.member.modify',compact('data'));
