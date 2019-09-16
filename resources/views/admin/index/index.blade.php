@@ -35,7 +35,7 @@
     <div class="navbar navbar-fixed-top">
         <div class="container-fluid cl">
             <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">
-                <img src="" alt="logo图片位置" style="width:100px;max-height:30px">
+                <img src="{{$system->logo_url}}" alt="logo图片位置" style="width:100px;max-height:30px">
             </a>
             <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">logo</a>
 <!--             <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span> -->

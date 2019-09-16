@@ -15,6 +15,7 @@ class IndexController extends Controller
 
     //首页
     public function index(){
+        $sytem = System::get()->first();
         $curlt = curl_init();
 
         /*获取用户的信息*/
@@ -80,7 +81,7 @@ class IndexController extends Controller
             }
         }
         // FS1Wu4GJRVCaNdtzbAeHlw|j9JPkfLMU0wZtx8c1BB6pkPGuiEim0h
-        return view('admin.index.index',compact('p'));
+        return view('admin.index.index',compact('p','system'));
     }
 
 
