@@ -21,7 +21,7 @@ class SystemController extends Controller
             if ($file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions)) {
                 return ['error' => 'You may only upload png, jpg , PNG , jpeg or gif.'];
             }
-            $destinationPath = '/images/'; //public 文件夹下面建 imges 文件夹
+            $destinationPath = '/images'; //public 文件夹下面建 imges 文件夹
             $extension = $file->getClientOriginalExtension();
             $fileName = str_random(10).'.'.$extension;
             $file->move($destinationPath, $fileName);
