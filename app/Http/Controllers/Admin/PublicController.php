@@ -64,13 +64,13 @@ class PublicController extends Controller
         //继续开始进行身份核实
         $data['status'] = '2';//要求状态为启用的用户登录
         $admin = DB::table('manager') -> get() ->first();
-        dd($admin->username);
         $type = '1';
         $result = Auth::guard('admin') -> attempt($data,$request -> get('online'));
         if(!$result){
             $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
             $type = '2';
         }
+        dd($result);
         //判断是否成功
         if($result){
             $curl = curl_init();
