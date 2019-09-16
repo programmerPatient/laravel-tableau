@@ -64,6 +64,7 @@ class PublicController extends Controller
         //继续开始进行身份核实
         $data['status'] = '2';//要求状态为启用的用户登录
         $admin = DB::table('manager') -> get() ->first();
+        dd($admin);
         $type = '1';
         $result = Auth::guard('admin') -> attempt($data,$request -> get('online'));
         if(!$result){
