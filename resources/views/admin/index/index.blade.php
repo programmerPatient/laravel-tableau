@@ -48,7 +48,7 @@
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
                             <li><a href="#">切换账户</a></li>
-                            <li><a href="/admin/public/logout" onClick="historyClear">退出</a></li>
+                            <li><a href="/admin/public/logout" onClick="historyClear()">退出</a></li>
                         </ul>
                     </li>
                     <li id="Hui-msg">
@@ -193,6 +193,10 @@ function myselfinfo(){
     });
 }
 
+function historyClear(){
+    window.history.forward(1);
+    console.log('sssss');
+}
 
 /*资讯-添加*/
 function article_add(title,url){
