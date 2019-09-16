@@ -10,6 +10,7 @@ use App\Models\Admin\System;
 use Auth;
 use Session;
 use Cookie;
+use DB;
 
 class PublicController extends Controller
 {
