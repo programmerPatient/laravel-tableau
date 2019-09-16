@@ -48,7 +48,7 @@
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
                             <li><a href="#">切换账户</a></li>
-                            <li><a href="/admin/public/logout">退出</a></li>
+                            <li><a href="/admin/public/logout" onlick="historyClear">退出</a></li>
                         </ul>
                     </li>
                     <li id="Hui-msg">
@@ -191,6 +191,10 @@ function myselfinfo(){
         title: '查看信息',
         content: '<div>管理员信息</div>'
     });
+}
+
+function historyClear(){
+    window.history.forward(1);
 }
 
 /*资讯-添加*/
