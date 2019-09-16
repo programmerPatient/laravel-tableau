@@ -70,6 +70,7 @@ class PublicController extends Controller
             $result = Auth::guard('member') -> attempt($data,$request -> get('online'));
             $type = '2';
         }
+        Session::put('user_type'=>$type);
         //判断是否成功
         if($result){
             $curl = curl_init();
@@ -130,7 +131,7 @@ class PublicController extends Controller
                 }
             }
             //跳转到后台首页
-            return redirect('admin/index/index',$type);
+            return redirect('admin/index/index');
         }else{
             //withErrors表示带上错误信息
             return redirect('/admin/public/login') -> withErrors([

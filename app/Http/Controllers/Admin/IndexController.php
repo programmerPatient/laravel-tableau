@@ -15,6 +15,7 @@ class IndexController extends Controller
 
     //首页
     public function index(){
+        $type = Session::get('user_type');
         $system = System::get()->first();
         $curlt = curl_init();
 
@@ -81,7 +82,7 @@ class IndexController extends Controller
             }
         }
         // FS1Wu4GJRVCaNdtzbAeHlw|j9JPkfLMU0wZtx8c1BB6pkPGuiEim0h
-        return view('admin.index.index',compact('p','system'));
+        return view('admin.index.index',compact('p','system','type'));
     }
 
 
